@@ -9,20 +9,21 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
-steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
 
 stages:
   - stage: dev
     jobs:
       - job: dev-job
-        - task: TerraformTaskV3@3
-          inputs:
-            provider: 'azurerm'
-            command: 'init'
-            backendServiceArm: 'yakub pay as you go 16 may 22 (c6b3494e-5f7c-4336-9ff6-16978f844f83)'
-            backendAzureRmResourceGroupName: 'state-demo'
-            backendAzureRmStorageAccountName: 'yakubgittystate'
-            backendAzureRmContainerName: 'terraformstatefiles'
-            backendAzureRmKey: 'jamalitest/dev.tfstate'
+        steps:
+          - task: TerraformInstaller@0
+            inputs:
+              terraformVersion: 'latest'
+          - task: TerraformTaskV3@3
+            inputs:
+              provider: 'azurerm'
+              command: 'init'
+              backendServiceArm: 'yakub pay as you go 16 may 22 (c6b3494e-5f7c-4336-9ff6-16978f844f83)'
+              backendAzureRmResourceGroupName: 'state-demo'
+              backendAzureRmStorageAccountName: 'yakubgittystate'
+              backendAzureRmContainerName: 'terraformstatefiles'
+              backendAzureRmKey: 'jamalitest/dev.tfstate'
