@@ -22,6 +22,7 @@ stages:
             inputs:
               provider: 'azurerm'
               command: 'init'
+              workingDirectory: '$(System.DefaultWorkingDirectory)/resgrp'
               backendServiceArm: 'yakub pay as you go 16 may 22 (c6b3494e-5f7c-4336-9ff6-16978f844f83)'
               backendAzureRmResourceGroupName: 'state-demo'
               backendAzureRmStorageAccountName: 'yakubgittystate'
