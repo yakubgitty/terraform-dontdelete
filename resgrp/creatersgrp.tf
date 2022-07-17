@@ -8,10 +8,10 @@ terraform {
 }
 terraform {
   backend "azurerm" {
-/*     resource_group_name  = "StorageAccount-ResourceGroup"
-    storage_account_name = "abcd1234"
-    container_name       = "tfstate"
-    key                  = "prod.terraform.tfstate" */
+    resource_group_name  = "state-demo"
+    storage_account_name = "yakubgittystate"
+    container_name       = "terraformstatefiles"
+    key                  = "jamalitest/dev.tfstate"
   }
 }
 provider "azurerm" {
