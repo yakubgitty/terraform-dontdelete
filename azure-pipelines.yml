@@ -13,7 +13,7 @@ pool:
 stages:
   - stage: dev
     jobs:
-      - job: dev-job
+      - job: devjob
         steps:
           - task: TerraformInstaller@0
             inputs:
